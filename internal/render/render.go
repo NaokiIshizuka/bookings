@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/justinas/nosurf"
-	"github.com/tsawler/bookings-app/pkg/config"
-	"github.com/tsawler/bookings-app/pkg/models"
+	config2 "github.com/tsawler/bookings-app/internal/config"
+	models2 "github.com/tsawler/bookings-app/internal/models"
 	"html/template"
 	"log"
 	"net/http"
@@ -14,21 +14,21 @@ import (
 
 var functions = template.FuncMap{}
 
-var app *config.AppConfig
+var app *config2.AppConfig
 
 // NewTemplates sets the config for the template package
-func NewTemplates(a *config.AppConfig) {
+func NewTemplates(a *config2.AppConfig) {
 	app = a
 }
 
 // AddDefaultData adds data for all templates
-func AddDefaultData(td *models.TemplateData, r *http.Request) *models.TemplateData {
+func AddDefaultData(td *models2.TemplateData, r *http.Request) *models2.TemplateData {
 	td.CSRFToken = nosurf.Token(r)
 	return td
 }
 
 // RenderTemplate renders a template
-func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *models.TemplateData) {
+func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *models2.TemplateData) {
 	var tc map[string]*template.Template
 
 	if app.UseCache {
