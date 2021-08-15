@@ -3,7 +3,6 @@ package dbrepo
 import (
 	"database/sql"
 	"github.com/tsawler/bookings-app/internal/config"
-	"github.com/tsawler/bookings-app/internal/repository"
 )
 
 type postgresDBRepo struct {
@@ -11,7 +10,7 @@ type postgresDBRepo struct {
 	DB  *sql.DB
 }
 
-func NewPostgresRepo(conn *sql.DB, a *config.AppConfig) repository.DatabaseRepo {
+func NewPostgresRepo(conn *sql.DB, a *config.AppConfig) *postgresDBRepo {
 	return &postgresDBRepo{
 		App: a,
 		DB:  conn,
