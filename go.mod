@@ -11,4 +11,5 @@ require (
 	github.com/justinas/nosurf v1.1.1
 	github.com/tsawler/bookings v0.0.0-20210104180229-24e0fb459769
 	github.com/xhit/go-simple-mail/v2 v2.10.0 // indirect
+	golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2
 )
